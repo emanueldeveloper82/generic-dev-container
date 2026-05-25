@@ -21,7 +21,7 @@
       "version": "3.12"
     },
     "ghcr.io/devcontainers/features/go:1": {
-      "version": "latest"
+      "version": "1.26.3"
     },
     "ghcr.io/devcontainers/features/java:1": {
       "version": "21",

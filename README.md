@@ -60,6 +60,8 @@ generic-dev-container/
 │   ├── Dockerfile
 │   ├── docker-compose.yml   ← app + Postgres, Redis, RabbitMQ, WireMock, Redpanda
 │   └── wiremock/mappings/   ← stubs HTTP (opcional)
+├── docs/                    ← documentação do produto em desenvolvimento
+├── projetos/                ← git clone das aplicações em que você trabalha
 ├── .env                     ← suas credenciais locais (não commitar)
 ├── .env.example             ← template versionado
 ├── .pre-commit-config.yaml  ← hooks de validação antes do commit
@@ -69,6 +71,11 @@ generic-dev-container/
 │   └── dev-container-guide.md
 └── README.md
 ```
+
+| Pasta | Descrição |
+|-------|-----------|
+| [`docs/`](docs/README.md) | Documentação do projeto a ser desenvolvido |
+| [`projetos/`](projetos/README.md) | Repositórios clonados (`git clone`) para codificar |
 
 ### Passo 2 — Revisar o `devcontainer.json`
 

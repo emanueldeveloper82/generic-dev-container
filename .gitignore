@@ -6,7 +6,11 @@
 # pre-commit
 .cache/
 
-# Dependências (quando você clonar projetos dentro deste workspace)
+# Repositórios clonados em projetos/ (mantém apenas projetos/README.md)
+projetos/*
+!projetos/README.md
+
+# Dependências (projetos clonados e raiz)
 node_modules/
 __pycache__/
 *.py[cod]

@@ -61,6 +61,7 @@ generic-dev-container/
 │   ├── docker-compose.yml   ← app + Postgres, Redis, RabbitMQ, WireMock, Redpanda
 │   └── wiremock/mappings/   ← stubs HTTP (opcional)
 ├── docs/                    ← documentação do produto em desenvolvimento
+├── sdd/                     ← guia Spec Kit / Spec-Driven Development
 ├── projetos/                ← git clone das aplicações em que você trabalha
 ├── .env                     ← suas credenciais locais (não commitar)
 ├── .env.example             ← template versionado
@@ -75,6 +76,7 @@ generic-dev-container/
 | Pasta | Descrição |
 |-------|-----------|
 | [`docs/`](docs/README.md) | Documentação do projeto a ser desenvolvido |
+| [`sdd/`](sdd/README.md) | Guia de instalação e uso do Spec Kit (SDD) |
 | [`projetos/`](projetos/README.md) | Repositórios clonados (`git clone`) para codificar |
 
 ### Passo 2 — Revisar o `devcontainer.json`

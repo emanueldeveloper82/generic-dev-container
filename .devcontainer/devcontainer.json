@@ -1,0 +1,88 @@
+{
+  "name": "Ambiente Genérico de Desenvolvimento",
+  "dockerComposeFile": "docker-compose.yml",
+  "dockerComposeEnvFile": "../.env",
+  "service": "app",
+  "workspaceFolder": "/workspaces",
+  "remoteUser": "vscode",
+  "runServices": ["db", "redis", "rabbitmq", "wiremock", "redpanda"],
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "username": "vscode"
+    },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "jdkDistro": "ms",
+      "installMaven": true,
+      "installGradle": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "golang.Go",
+        "vscjava.vscode-java-pack",
+        "EditorConfig.EditorConfig",
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-21",
+            "path": "/home/vscode/.sdkman/candidates/java/current",
+            "default": true
+          }
+        ]
+      }
+    }
+  },
+  "forwardPorts": [
+    3000,
+    5173,
+    8000,
+    5433,
+    6379,
+    5672,
+    15672,
+    8080,
+    9092,
+    19092,
+    9644
+  ],
+  "portsAttributes": {
+    "3000": { "label": "Node (ex.: Next/Express)" },
+    "5173": { "label": "Vite" },
+    "8000": { "label": "Python (ex.: FastAPI)" },
+    "5433": { "label": "PostgreSQL (Docker → host)" },
+    "6379": { "label": "Redis" },
+    "5672": { "label": "RabbitMQ AMQP" },
+    "15672": { "label": "RabbitMQ Management" },
+    "8080": { "label": "WireMock" },
+    "9092": { "label": "Redpanda Kafka (interno)" },
+    "19092": { "label": "Redpanda Kafka (host)" },
+    "9644": { "label": "Redpanda Admin API" }
+  },
+  "postCreateCommand": "chmod +x scripts/post-create.sh && bash scripts/post-create.sh",
+  "postStartCommand": "bash -lc 'for d in \"${containerWorkspaceFolder}\" /workspaces; do [ -d \"$d\" ] && git config --global --add safe.directory \"$d\" && break; done' || true"
+}
